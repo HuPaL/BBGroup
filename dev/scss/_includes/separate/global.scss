@@ -1,0 +1,345 @@
+.l-wrapper{
+	position: relative;
+	min-height: 100vh;
+	overflow: hidden;
+	padding: 0 318px 0 125px;
+	@media (max-width: 1700px) {
+		padding: 0 50px;
+	}
+	@media (max-width: 1200px) {
+		padding: 0;
+	}
+}
+
+//Logo
+
+.logo{
+	font-size: 32px;
+	color: $logo-color;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: color $trs ease;
+	letter-spacing: 1px;	
+	line-height: 36px;
+	font-family: 'Georgia', sans-serif;
+	&:hover{
+		color: $accent;
+	}
+	@media (max-width: $sw-sm-max) {
+		font-size: 18px;
+		line-height: 21px;
+		letter-spacing: 0.56px;
+	}
+}
+
+
+//User link
+.user{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	color: $text-color;
+	text-decoration: none;
+	transition: color $trs ease;
+	&:hover{
+		color: $accent;
+	}
+
+	&__name{
+		font-size: 18px;	
+		font-weight: 500;	
+		letter-spacing: 0.75px;	
+		line-height: 25px;
+		margin-right: 16px;
+		font-family: 'AvenirNextCyr-Medium', sans-serif;
+		@media (max-width: $sw-xx-max) {
+			font-size: 14px;
+			line-height: 20px;
+		}
+	}
+
+	&__avatar{
+		width: 45px;
+		height: 45px;
+		border-radius: 50%;
+		@media (max-width: $sw-xx-max) {
+			width: 35px;
+			height: 35px;
+		}
+	}
+}
+
+.section{
+	padding: 56px 0 150px 0;
+	@media (max-width: $sw-sm-max) {
+		padding: 24px 0;
+	}
+}
+
+
+//Form
+.solution-form{
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 70px 100px 0 70px ;
+	border-radius: 4px;
+	background-color: #fcfcfc;
+	box-shadow:  0 10px 20px 0 rgba(76,91,96,0.3);
+	@media (max-width: $sw-xx-max) {
+		padding: 48px 24px;
+		margin: 0 -15px;
+	}
+
+	&__block{
+		width: 50%;
+		padding-right: 20px;
+		@media (max-width: $sw-xs-max) {
+			width: 100%;	
+			padding-right: 0;
+		}
+	}
+
+	&__item{
+		margin-bottom: 40px;
+		.form-group{
+			max-width: 240px;
+			position: relative;
+			.form-control-placeholder{
+				position: absolute;
+				left: 8px;
+			  top: 4px;
+			  padding: 4px;
+			  font-size: 16px;
+			  line-height: 1;
+			  color: #999;
+			  transition: all $trs ease;
+			}
+			.form-control{
+				position: relative;
+				border: 1px solid #DADCE0;	
+				border-radius: 4px;
+				height: 36px;
+				// margin-bottom: 24px;
+				background-color: transparent;
+				z-index: 1;
+				transition: all $trs ease;
+				&:focus{
+					border: 1px solid #3F5662;
+				}
+				&.error{
+					.form-control-placeholder{
+						top: 0;
+						font-size: 10px;
+					  color: #3F5662;
+					  background-color: #fff;
+					  transform: translate3d(0, -55%, 0);
+					  z-index: 3;
+					}
+				}
+				&:disabled{
+					border: none;
+					padding-left: 0;
+					color: #979797;
+					opacity: 1;
+				}
+			}
+		}
+		&--data{
+			.form-group{
+				margin-bottom: 24px;
+			}
+		}
+	}
+
+	&__item-title{
+		display: block;
+		font-size: 18px;
+		line-height: 37px;
+		font-weight: bold;
+		color: $text-color;
+		font-family: 'Open-Sans', sans-serif;
+		margin-bottom: 16px;
+	}
+
+	&__button{
+		width: 100%;
+		padding: 30px 0;
+		text-align: center;
+		border-top: 1px solid #d7d7d7;
+		@media (max-width: $sw-xx-max) {
+			text-align: left;
+			border: none;
+		}
+	}
+
+	&__option{
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		display: -o-flex;
+		display: flex;
+		align-items: center;
+	}
+}
+
+.solution-form__item .form-control.error ~ .form-control-placeholder,
+.solution-form__item .form-control:focus + .form-control-placeholder,
+.solution-form__item .form-control:valid + .form-control-placeholder{
+  top: 0;
+	font-size: 10px;
+  color: #3F5662;
+  background-color: #fff;
+  transform: translate3d(0, -55%, 0);
+  z-index: 3;
+}
+
+//Form success
+
+.success{
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #fff;
+	z-index: 10;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	opacity: 0;
+	visibility: hidden;
+	transition: all $trs ease;
+	&.active{
+		opacity: 1;
+		visibility: visible;
+	}
+	@media (max-width: $sw-xx-max) {
+		justify-content: flex-start;
+		padding-top: 88px;
+	}
+
+	&__title{
+		color: $text-color;	
+		font-family: "Open Sans";	
+		font-size: 20px;	
+		font-weight: bold;	
+		line-height: 37px;	
+		text-align: center;
+		max-width: 364px;
+		@media (max-width: $sw-xx-max) {
+			font-size: 18px;
+		}
+	}
+
+	&__icon{
+		width: 73px;
+		height: 73px;
+		border-radius: 50%;
+		border: 1px solid $accent;
+		color: $accent;
+		text-align: center;
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		display: -o-flex;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 2.5rem;
+		margin: 80px 0  73px 0;
+		@media (max-width: $sw-xx-max) {
+			margin: 64px 0;
+		}
+	}
+}
+
+//Site menu
+
+.site-menu{
+
+	&__item{
+		line-height: 1;
+		&:not(:last-child){
+			margin-bottom: 24px;
+			@media (max-width: $sw-sm-max) {
+				margin-bottom: 10px;
+			}
+		}
+		@media (max-width: $sw-sm-max) {
+			text-align: right;
+		}
+	}
+
+	&__link{
+		font-size: 18px;
+		font-weight: 500;
+		line-height: 25px;
+		color: $text-color;
+		letter-spacing: 0.75px;
+		text-decoration: none;
+		font-family: 'AvenirNextCyr-Medium', sans-serif;
+		transition: color $trs ease;
+		&.active{
+			color: $accent;
+		}
+		@media (min-width: $sw-md-min) {
+			&:hover{
+				color: $accent;
+			}
+		}
+		@media (max-width: $sw-sm-max) {
+			font-size: 14px;
+			line-height: 20px;
+		}
+	}
+}
+
+//Social
+
+.social-list{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	align-items: center;
+	@media (max-width: $sw-sm-max) {
+		justify-content: flex-end;
+	}
+
+	&__item{
+		line-height: 1;
+		&:not(:last-child){
+			margin-right: 62px;
+			@media (max-width: $sw-sm-max) {
+				margin-right: 20px;
+			}
+		}
+	}
+
+	&__link{
+		display: block;
+		font-size: 22px;
+		line-height: 1;
+		color: $text-color;
+		transition: color $trs ease;
+		&:hover{
+			color: $accent;
+		}
+		@media (max-width: $sw-sm-max) {
+			font-size: 14px;
+		}
+	}
+}

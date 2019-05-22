@@ -1,0 +1,75 @@
+.c-header{
+	padding: 50px 0 ;
+	@media (max-width: $sw-sm-max) {
+		background-color: #fff;
+		box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16);
+		padding: 16px 0;
+	}
+    
+}
+
+.hamburger {
+  width: 16px;
+  height: 12px;
+  margin-left: 2rem;
+  position: relative;
+  display: none;
+  margin-left: auto;
+  @media (max-width: $sw-sm-max) {
+  	display: block;
+  }
+}
+
+.hamburger .bar {
+  padding: 0;
+  width: 16px;
+  height: 2px;
+  background-color: #254E75;
+  display: block;
+  border-radius: 2px;
+  transition: all 0.4s ease-in-out;
+  position: absolute; 
+}
+
+.bar1 {
+  top: 0;
+}
+
+.bar2,
+.bar3 {
+  top: 5px;
+}
+
+.bar3 {
+  right: 0;
+}
+
+.bar4 {
+  bottom: 0;
+}
+
+.hamburger{
+	&.active{
+		.bar1{
+			transform: translateX(40px);
+    	background-color: transparent;
+		}
+		.bar2{
+			transform: rotate(45deg);
+		}
+		.bar3{
+			transform: rotate(-45deg);
+		}
+		.bar4{
+			transform: translateX(-40px);
+   		background-color: transparent;
+		}
+	}
+}
+
+.mobile-wrap{
+
+	&__menu{
+		margin: 20px 0;
+	}
+}

@@ -1,0 +1,135 @@
+extends _includes/_extends/main
+
+include _includes/components/c-forms/c-forms
+
+block content
+	.section
+		.container-fluid
+			.row.align-items-center
+				.col-lg-9.col-md-6
+					nav.site-nav
+						ul.site-menu.h-reset-list
+							li.site-menu__item
+								a(href="#").site-menu__link Ціни
+							li.site-menu__item
+								a(href="#").site-menu__link Власникам
+							li.site-menu__item
+								a(href="#").site-menu__link Дистрибутив
+							li.site-menu__item
+								a(href="#").site-menu__link Бухгалтерам
+							li.site-menu__item
+								a(href="#").site-menu__link.active Реєстрація
+							li.site-menu__item
+								a(href="#").site-menu__link Правила
+				.col-lg-15.col-md-24
+					form#form.solution-form.js-form-check
+						.success
+							p.success__title Дякуємо! 
+								br
+								| Наш менеджер зв’яжеться з Вами протягом 10 хвилин.
+							.success__icon
+								+svg('icon-tick')
+							.success__button
+								a(href="#").btn.close-success на головну
+						//- Hidden Required Fields
+						input(type="hidden" name="project_name" value="BBGroup")
+						input(type="hidden" name="admin_email" value="pashkogup@gmail.com")
+						input(type="hidden" name="form_subject" value="Заявка з сайту BBGroup")
+						.solution-form__block
+							.solution-form__item.solution-form__item--data
+								span.solution-form__item-title Ваші контактні дані
+								.form-group
+									input.form-control(type="text", name="user-name", required)
+									span.form-control-placeholder Ім’я
+								.form-group
+									input.form-control(type="number", name="user-phone", required)
+									span.form-control-placeholder Номер телефону
+								.form-group
+									input.form-control(type="email", name="user-email", required)
+									span.form-control-placeholder E-mail
+							.solution-form__item
+								span.solution-form__item-title 1. Кількість працівників:
+								+form-group({
+									type: 'radio',
+									value: 'Менше 5-ти',
+									name: 'workers-number',
+									checked: true
+								})
+								+form-group({
+									type: 'radio',
+									value: 'Більше 5-ти',
+									name: 'workers-number'
+								})
+						.solution-form__block
+							.solution-form__item
+								span.solution-form__item-title 2. Кількість користувачів:
+								+form-group({
+									type: 'radio',
+									value: 'Менше 5-ти',
+									name: 'user-number'
+								})
+								+form-group({
+									type: 'radio',
+									value: 'Більше 5-ти',
+									name: 'user-number',
+									checked: true
+								})
+							.solution-form__item.solution-form__item--activity
+								span.solution-form__item-title 3. Вид діяльності:
+								+form-group({
+									type: 'radio',
+									value: 'Оптова торгівля',
+									name: 'activity-type',
+									checked: true,
+									label_class: 'your-activity'
+								})
+								+form-group({
+									type: 'radio',
+									value: 'Роздрібна торгівля',
+									name: 'activity-type',
+									label_class: 'your-activity'
+								})
+								+form-group({
+									type: 'radio',
+									value: 'Будівництво',
+									name: 'activity-type',
+									label_class: 'your-activity'
+								})
+								+form-group({
+									type: 'radio',
+									value: 'Сільське господарство',
+									name: 'activity-type',
+									label_class: 'your-activity'
+								})
+								+form-group({
+									type: 'radio',
+									value: 'Виробництво',
+									name: 'activity-type',
+									label_class: 'your-activity'
+								})
+								.solution-form__option
+									+form-group({
+										label_class: 'your-option',
+										type: 'radio',
+										value: '',
+										name: 'activity-type'
+									})
+									+form-group({
+										custom_class: 'your-option-text',
+										type: 'text',
+										placeholder: 'Ваш варіант',
+										disabled: true
+									})
+						.solution-form__button
+							button(type="submit").btn.submit-button Підібрати
+				.col-md-24.social-wrap
+					ul.social-list.h-reset-list
+						li.social-list__item
+							a(href="tel:+380939379992").social-list__link
+								+svg('icon-phone')
+						li.social-list__item
+							a(href="mailto:bbgroup@gmail.com").social-list__link
+								+svg('icon-mail')
+						li.social-list__item
+							a(href="#").social-list__link
+								+svg('icon-insta')
