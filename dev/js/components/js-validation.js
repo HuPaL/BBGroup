@@ -8,7 +8,7 @@ $(document).ready(function () {
             },
             "user-phone": {
                 required: true,
-                minlength: 13
+                minlength: 12
             },
             "user-email": {
                 required: true,
